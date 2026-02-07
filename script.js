@@ -55,26 +55,26 @@
             profileImg.style.filter = 'brightness(1)';
         });
 
+
         // Validación del formulario de contacto
         const contactForm = document.getElementById('messageForm');
+
         if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const subject = document.getElementById('subject').value;
-                const message = document.getElementById('message').value;
-                
-                if (name && email && subject && message) {
-                    // Aquí iría la lógica para enviar el formulario
-                    alert('¡Mensaje enviado con éxito! Te contactaré pronto.');
-                    contactForm.reset();
-                } else {
-                    alert('Por favor, completa todos los campos.');
-                }
-            });
+        contactForm.addEventListener('submit', function () {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !message) {
+            alert('Por favor, completa todos los campos.');
+            return false; // evita envío solo si falta algo
         }
+
+        alert('¡Mensaje enviado con éxito! Te contactaré pronto.');
+        // si todo está bien, el formulario se envía normalmente
+    });
+}
+
 
         const btnTop = document.getElementById("btnTop");
 
